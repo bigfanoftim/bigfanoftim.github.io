@@ -1,3 +1,9 @@
+## Spring
+
+### Spring Security
+
+- [WebSecurityConfigurerAdapter가 아닌 component-based security configuration](spring%2Fspring-security%2Fcomponent-based-security-configuration%2Fcontent.md)
+
 ## JPA
 
 ### Spring Data JPA
