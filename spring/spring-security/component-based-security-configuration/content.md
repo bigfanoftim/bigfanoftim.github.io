@@ -1,4 +1,4 @@
-# WebSecurityConfigurerAdapter가 아닌 component-based security configuration
+# WebSecurityConfigurerAdapter가 아닌 component-based security configuration 방식으로 Spring Security Filter 구현
 
 > In Spring Security 5.7.0-M2 we deprecated the WebSecurityConfigurerAdapter, as we encourage users to move towards a component-based security configuration.
 

@@ -2,7 +2,8 @@
 
 ### Spring Security
 
-- [WebSecurityConfigurerAdapter가 아닌 component-based security configuration](spring%2Fspring-security%2Fcomponent-based-security-configuration%2Fcontent.md)
+- [WebSecurityConfigurerAdapter가 아닌 component-based security configuration 방식으로 Spring Security Filter 구현](spring%2Fspring-security%2Fcomponent-based-security-configuration%2Fcontent.md)
+- [커스텀 HandlerMethodArgumentResolver 구현](spring%2Fspring-security%2Fhandler-method-argument-resolver%2Fcontent.md)
 
 ## JPA
 

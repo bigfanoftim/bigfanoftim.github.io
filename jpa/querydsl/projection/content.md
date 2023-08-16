@@ -2,8 +2,6 @@
 
 ## 참고
 > [인프런 | 실전! Querydsl](https://www.inflearn.com/course/querydsl-%EC%8B%A4%EC%A0%84/dashboard) - 김영한
->
----
 
 ## 생성자를 이용한 Dto 조회
 - Consturctor를 이용한 방식은 컴파일 단계에서 에러를 잡을 수 없다.
