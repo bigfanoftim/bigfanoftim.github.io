@@ -5,6 +5,10 @@
 - [WebSecurityConfigurerAdapter가 아닌 component-based security configuration 방식으로 Spring Security Filter 구현](spring%2Fspring-security%2Fcomponent-based-security-configuration%2Fcontent.md)
 - [커스텀 HandlerMethodArgumentResolver 구현](spring%2Fspring-security%2Fhandler-method-argument-resolver%2Fcontent.md)
 
+### 그 외
+
+- [@Transactional 어노테이션과 synchronized 함께 사용](spring%2Ftransactional-annotation-with-synchronized%2Fcontent.md)
+
 ## JPA
 
 ### Spring Data JPA
