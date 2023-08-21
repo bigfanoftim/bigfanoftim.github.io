@@ -4,6 +4,7 @@
 
 - [MySQL 엔진의 잠금](database%2Fmysql%2Fmysql-engine-lock%2Fcontent.md)
 - [InnoDB 스토리지 엔진 잠금](database%2Fmysql%2Finnodb-storage-engine-lock%2Fcontent.md)
+- [InnoDB 인덱스와 잠금](database%2Fmysql%2Finnodb-index-lock%2Fcontent.md)
 
 ## Spring
 
