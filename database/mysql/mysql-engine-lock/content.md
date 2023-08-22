@@ -1,7 +1,5 @@
 # MySQL 엔진의 잠금
 
-> 이 글은 [Real MySQL 8.0](https://www.yes24.com/Product/Goods/103415627) 책을 참고하여 작성되었습니다.
-
 - MySQL에서 사용되는 잠금
   - 스토리지 엔진 레벨 -> 스토리지 엔진 간 상호 영향 X
   - MySQL 엔진 레벨 -> 모든 스토리지 엔진에 영향 
@@ -66,3 +64,7 @@
     RENAME TABLE rank_new TO rank;
     ```
 - TODO: 메타데이터 잠금과 InnoDB 트랜잭션 동시 이용 케이스
+
+### 참고
+- [Real MySQL 8.0](https://www.yes24.com/Product/Goods/103415627)
+
