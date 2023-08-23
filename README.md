@@ -20,6 +20,9 @@
 
 ## JPA
 
+### 동시성 제어
+- [비관적 락(Pessimistic Lock)을 적용하여 동시성 제어하기](jpa%2Fconcurrency-control%2Fpessimistic-lock%2Fcontent.md) 
+
 ### Spring Data JPA
 
 - [Spring Data JPA의 다양한 예시](jpa%2Fspring-data-jpa%2Fspring-data-jpa-example%2Fexample.java)
