@@ -22,7 +22,7 @@
 
 ### 동시성 제어
 - [비관적 락(Pessimistic Lock)을 적용하여 동시성 제어하기](jpa/concurrency-control/pessimistic-lock/content.md) 
-- [낙관적 락(Optimistic Lock)을 적용하여 동시성 제어하기](jpa/concurrency-control/optimistic-lock/content.md)
+- [낙관적 락(Optimistic Lock)에 재시도 전략(RetryStrategy)을 적용하여 동시성 제어하기](jpa/concurrency-control/optimistic-lock/content.md)
 
 ### Spring Data JPA
 
