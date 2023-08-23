@@ -1,10 +1,10 @@
 # 비관적 락(Pessimistic Lock)을 적용하여 동시성 제어하기
 
 ### 읽기 전에 미리 알면 좋은 내용들
-- [MySQL 엔진의 잠금](database%2Fmysql%2Fmysql-engine-lock%2Fcontent.md)
-- [InnoDB 스토리지 엔진 잠금](database%2Fmysql%2Finnodb-storage-engine-lock%2Fcontent.md)
-- [InnoDB 인덱스와 잠금](database%2Fmysql%2Finnodb-index-lock%2Fcontent.md)
-- [트랜잭션 격리 수준](database%2Fmysql%2Ftransaction-isolation-level%2Fcontent.md)
+- [MySQL 엔진의 잠금](../../../database/mysql/mysql-engine-lock/content.md)
+- [InnoDB 스토리지 엔진 잠금](../../../database/mysql/innodb-storage-engine-lock/content.md)
+- [InnoDB 인덱스와 잠금](../../../database/mysql/innodb-index-lock/content.md)
+- [트랜잭션 격리 수준](../../../database/mysql/transaction-isolation-level/content.md)
 
 ---
 
