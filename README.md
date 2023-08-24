@@ -7,17 +7,19 @@
 - [InnoDB 인덱스와 잠금](database/mysql/innodb-index-lock/content.md)
 - [트랜잭션 격리 수준](database/mysql/transaction-isolation-level/content.md)
 
+## Java
+
+- [JDK, JRE, JVM](java/jdk-jre-jvm/content.md) 
+
 ## Spring
+
+- [@Transactional 어노테이션과 synchronized 함께 사용](spring/transactional-annotation-with-synchronized/content.md)
+- [@Autowired 어노테이션을 사용하면서 필드 및 Setter로 의존성 주입 시 발생할 수 있는 문제](spring/autowired-issues/content.md)
 
 ### Spring Security
 
 - [WebSecurityConfigurerAdapter가 아닌 component-based security configuration 방식으로 Spring Security Filter 구현](spring/spring-security/component-based-security-configuration/content.md)
 - [커스텀 HandlerMethodArgumentResolver 구현](spring/spring-security/handler-method-argument-resolver/content.md)
-
-### 그 외
-
-- [@Transactional 어노테이션과 synchronized 함께 사용](spring/transactional-annotation-with-synchronized/content.md)
-- [@Autowired 어노테이션을 사용하면서 필드 및 Setter로 의존성 주입 시 발생할 수 있는 문제](spring/autowired-issues/content.md)
 
 ## JPA
 
