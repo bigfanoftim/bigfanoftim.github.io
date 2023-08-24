@@ -43,7 +43,21 @@ public class MeasureService {
 
 고수준 모듈(MeasureService)의 정책은 변경된게 없으나 저수준 모듈 구현의 변경으로 고수준 모듈의 코드까지 변경되어야 하는 상황이다. 
 
-## 고수준 모듈의 추상화에 저수준 모듈의 의존해야 한다.
+다른 예시를 하나 더 살펴보자.
+
+```java
+class MyService {
+  private ConcreteDependency dependency = new ConcreteDependency();
+
+  public void doSomething() {
+    dependency.someMethod();
+  }
+}
+```
+
+MyService 클래스도 저수준 모듈인 ConcreteDependency의 구현을 그대로 의존하고 있다. 이런식으로 컴파일 시점에서 의존을 해버리면 유연하게 의존을 변경할 수 없게 된다.
+
+## 저수준 모듈이 고수준 모듈의 추상화에 의존해야 한다.
 
 이런 문제를 해결하기 위해 저수준 모듈이 고수준 모듈의 추상화에 의존할 수 있도록 구현하는 것이 `의존 역전 원칙`이다.
 
