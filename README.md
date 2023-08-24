@@ -10,6 +10,7 @@
 ## Java
 
 - [JDK, JRE, JVM](java/jdk-jre-jvm/content.md) 
+- [JVM의 구조](java/jvm-architecture/content.md)
 
 ## Spring
 
