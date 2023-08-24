@@ -17,6 +17,7 @@
 ### 그 외
 
 - [@Transactional 어노테이션과 synchronized 함께 사용](spring/transactional-annotation-with-synchronized/content.md)
+- [@Autowired 어노테이션을 사용하면서 필드 및 Setter로 의존성 주입 시 발생할 수 있는 문제](spring/autowired-issues/content.md)
 
 ## JPA
 
