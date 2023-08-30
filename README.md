@@ -12,6 +12,7 @@
 - [JDK, JRE, JVM](java/jdk-jre-jvm/content.md) 
 - [JVM의 구조](java/jvm-architecture/content.md)
 - [Reflection이란?](java/reflection/content.md)
+- [람다식(Lambda Expression)](java/lambda-expression/README.md)
 
 ## Spring
 
