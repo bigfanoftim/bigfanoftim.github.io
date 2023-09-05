@@ -17,7 +17,8 @@
 
 ### 이펙티브 자바
 
-- [생성자 대신 정적 팩토리 메소드를 고려하라](effective-java/src/main/java/chapter01/item01/content.md)
+- 아이템 1. 생성자 대신 정적 팩토리 메소드를 고려하라
+    - [정적 팩토리 메소드의 5가지 장점](effective-java/src/main/java/chapter01/item01/content.md)
 
 ## Spring
 

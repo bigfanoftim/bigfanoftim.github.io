@@ -1,13 +1,14 @@
 package chapter01.item01;
 
+import java.util.Optional;
+import java.util.ServiceLoader;
+
 public class Main {
     public static void main(String[] args) {
-        Settings settings1 = Settings.newInstance();
-        Settings settings2 = Settings.newInstance();
-        Settings settings3 = Settings.newInstance();
-
-        System.out.println("settings1 = " + settings1);
-        System.out.println("settings2 = " + settings2);
-        System.out.println("settings3 = " + settings3);
+        ServiceLoader<HelloService> load = ServiceLoader.load(HelloService.class);
+        Optional<HelloService> helloServiceOptional = load.findFirst();
+        helloServiceOptional.ifPresent(helloService -> {
+            System.out.println(helloService.hello());
+        });
     }
 }
