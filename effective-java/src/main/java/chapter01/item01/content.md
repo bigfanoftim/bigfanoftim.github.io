@@ -1,4 +1,4 @@
-# 정적 팩토리 메소드의 5가지 장점
+# 생성자 대신 정적 팩토리 메소드를 사용하는 것의 5가지 장점
 
 ### 참고
 - [YES24 - 이펙티브 자바 Effective Java 3/E](https://www.yes24.com/Product/Goods/65551284)
