@@ -21,6 +21,7 @@
 - 아이템 1. 생성자 대신 정적 팩토리 메소드를 고려하라
     - [생성자 대신 정적 팩토리 메소드를 사용하는 것의 5가지 장점](effective-java/src/main/java/chapter01/item01/content.md)
     - [생성자 대신 정적 팩토리 메소드를 사용하는 것의 2가지 단점](effective-java/src/main/java/chapter01/item01/cons.md)
+    - [플라이웨이트(Flyweight) 패턴](effective-java/src/main/java/chapter01/item01/flyweight/content.md)
 
 ## Spring
 
