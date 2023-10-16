@@ -30,18 +30,13 @@ const BioWrapper = styled.div`
   }
 `
 
-const profileImageRoot =
-  typeof window !== "undefined" && window.location.host === "localhost:8000"
-    ? "http://localhost:8000"
-    : siteUrl
-
 const Profile = styled.div`
   flex: 0 0 auto;
   margin-right: 16px;
   width: 128px;
   height: 128px;
   border-radius: 999px;
-  background-image: url(${profileImageRoot}/profile.png);
+  background-image: url('/profile.png');
   background-size: cover;
   background-position: center;
 `
