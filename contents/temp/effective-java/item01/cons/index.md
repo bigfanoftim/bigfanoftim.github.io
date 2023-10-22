@@ -73,7 +73,7 @@ public class Settings {
 위와 같이 생성자 대신 `getInstance()` 정적 팩토리 메소드를 활용하는 경우 클래스 내 메소드가 많다면 doc에서 곧바로 찾기 쉽지 않다.
 이를 해결하기 위해 문서화를 정확하게 진행하자. 위와 같이 주석을 작성하여 javadoc을 생성하면 아래와 같이 `이 클래스가 어떻게 인스턴스를 생성 혹은 활용하는지` 한 눈에 파악할 수 있다.
 
-![javadoc.png](./javadoc.png)
+![javadoc.png](javadoc.png)
 
 ## 정적 팩토리 메소드 네이밍
 
