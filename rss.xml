@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of bigfanoftim]]></title><description><![CDATA[RSS Feed of bigfanoftim]]></description><link>https://github.com/bigfanoftim/bigfanoftim.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 23 Oct 2023 14:53:11 GMT</lastBuildDate><item><title><![CDATA[빌더 패턴(Builder Pattern) 직접 구현하기]]></title><description><![CDATA[…]]></description><link>https://github.com/bigfanoftim/bigfanoftim.github.io/builder-pattern/</link><guid isPermaLink="false">https://github.com/bigfanoftim/bigfanoftim.github.io/builder-pattern/</guid><pubDate>Thu, 05 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;빌더 패턴은 복잡한 객체를 생성할 때 사용되며, 객체 생성에 필요한 인자와 선택적 인자를 명확하게 구분할 수 있다. 간단한 &lt;code class=&quot;language-text&quot;&gt;Computer&lt;/code&gt; 클래스를 만들고 빌더 패턴을 직접 구현하여 빌더 패턴이 가지는 장점을 직접 살펴보자. &lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of bigfanoftim]]></title><description><![CDATA[RSS Feed of bigfanoftim]]></description><link>https://github.com/bigfanoftim/bigfanoftim.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 23 Oct 2023 14:56:15 GMT</lastBuildDate><item><title><![CDATA[빌더 패턴(Builder Pattern) 직접 구현하기]]></title><description><![CDATA[…]]></description><link>https://github.com/bigfanoftim/bigfanoftim.github.io/builder-pattern/</link><guid isPermaLink="false">https://github.com/bigfanoftim/bigfanoftim.github.io/builder-pattern/</guid><pubDate>Thu, 05 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;빌더 패턴은 복잡한 객체를 생성할 때 사용되며, 객체 생성에 필요한 인자와 선택적 인자를 명확하게 구분할 수 있다. 간단한 &lt;code class=&quot;language-text&quot;&gt;Computer&lt;/code&gt; 클래스를 만들고 빌더 패턴을 직접 구현하여 빌더 패턴이 가지는 장점을 직접 살펴보자. &lt;/p&gt;
 &lt;h2&gt;빌더 패턴 없는 기본 클래스&lt;/h2&gt;
 &lt;p&gt;우선 빌더 패턴 없이 구현한 &lt;code class=&quot;language-text&quot;&gt;Computer&lt;/code&gt; 클래스를 작성한다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Computer&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -143,7 +143,85 @@ IDE의 도움 없이는 확인하는 것이 매우 번거로우며 사람인지�
                 &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;withStorage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;2TB SSD&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
                 &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[MySQL의 격리 수준]]></title><description><![CDATA[1. 격리 수준에 따라 발생하는 현상들  DIRTY READ NON-REPEATABLE READ PHANTOM READ READ UNCOMMITTED O O O READ COMMITTED X O O REPEATABLE READ X X O (InnoDB…]]></description><link>https://github.com/bigfanoftim/bigfanoftim.github.io/transaction-isolation-level/</link><guid isPermaLink="false">https://github.com/bigfanoftim/bigfanoftim.github.io/transaction-isolation-level/</guid><pubDate>Tue, 22 Aug 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;1. 격리 수준에 따라 발생하는 현상들&lt;/h2&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[의존 역전 원칙 - DIP (Dependency Inversion Principle)]]></title><description><![CDATA[의존 역전 원칙 고수준 모듈이 저수준 모듈의 구현에 의존하면 안된다. 저수준 모듈이 고수준 모듈에서 정의한 추상타입에 의존해야 한다. 풀어 설명하면 고수준 모듈이 저수준 모듈의 구현에 의존하는 상황에서 발생하는 문제를 해결하기 위해 등장한 것이 DIP…]]></description><link>https://github.com/bigfanoftim/bigfanoftim.github.io/dependency-inversion-principal-inflearn/</link><guid isPermaLink="false">https://github.com/bigfanoftim/bigfanoftim.github.io/dependency-inversion-principal-inflearn/</guid><pubDate>Thu, 24 Aug 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;의존 역전 원칙&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;고수준 모듈이 저수준 모듈의 구현에 의존하면 안된다.&lt;/li&gt;
+&lt;li&gt;저수준 모듈이 고수준 모듈에서 정의한 추상타입에 의존해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;풀어 설명하면 고수준 모듈이 저수준 모듈의 구현에 의존하는 상황에서 발생하는 문제를 해결하기 위해 등장한 것이 DIP이다.&lt;/p&gt;
+&lt;p&gt;예를 한번 살펴보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/**
+ * 고수준 모듈에서 사용중인 저수준 모듈 변경 전
+ */&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MeasureService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;measure&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MeasureReq&lt;/span&gt; req&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;File&lt;/span&gt; file &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getFile&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        nasStorage&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;file&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        jdbcTemplate&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;insert into MEAS_INFO ...&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        
+        jdbcTemplate&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;insert into BP_MOD_REQ ...&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;/** 
+ * 고수준 모듈에서 사용중인 저수준 모듈 변경 후
+ */&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MeasureService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;measure&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MeasureReq&lt;/span&gt; req&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;File&lt;/span&gt; file &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getFile&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        s3Storage&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;file&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        jdbcTemplate&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;insert into MEAS_INFO ...&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        rabitmq&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;convertAndSend&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;고수준 모듈(MeasureService)의 정책은 변경된게 없으나 저수준 모듈 구현의 변경으로 고수준 모듈의 코드까지 변경되어야 하는 상황이다. &lt;/p&gt;
+&lt;p&gt;다른 예시를 하나 더 살펴보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MyService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ConcreteDependency&lt;/span&gt; dependency &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ConcreteDependency&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;doSomething&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    dependency&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;someMethod&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;MyService 클래스도 저수준 모듈인 ConcreteDependency의 구현을 그대로 의존하고 있다. 이런식으로 컴파일 시점에서 의존을 해버리면 유연하게 의존을 변경할 수 없게 된다.&lt;/p&gt;
+&lt;h3&gt;저수준 모듈이 고수준 모듈의 추상화에 의존해야 한다.&lt;/h3&gt;
+&lt;p&gt;이런 문제를 해결하기 위해 저수준 모듈이 고수준 모듈의 추상화에 의존할 수 있도록 구현하는 것이 &lt;code class=&quot;language-text&quot;&gt;의존 역전 원칙&lt;/code&gt;이다.&lt;/p&gt;
+&lt;p&gt;이때 명심해야 할 것은 &lt;code class=&quot;language-text&quot;&gt;저수준 모듈 구현 입장에서 추상화&lt;/code&gt;하는 것이 아니라 &lt;code class=&quot;language-text&quot;&gt;고수준 모듈의 정책 입장에서 추상화&lt;/code&gt;하는 것이다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/4e1bdabe36e4e36cb9a18bd340508239/843ab/image001.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 26.47058823529412%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA10lEQVR42m1Q7YqDMBD0/d/Id7heD6H9ZatB/IBaFY3my2SaXegV2g4Mye4OM5skSikMw4BxHLGuK7z32DaFZZFcW+tAsNbiHnV9f8c8z6wzxkbNFrULtDbYYy+ZpgllWUIIEcU9N+umwd/xiDzPoZRGmqb4jXXbtrhcrvHsEGII6bMsw+Hwwx4UmuANZChjYn+78dZSSpxOZ3Rdx/MQAtMTfYA2BkprOLdznTwFRILbd1RVxYnEum7+Z++g7xKiRFEUHE742PCZTh6ve/hq6pzjFxDJnAwfWViBGdjjaIMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;image001.png&apos; title=&apos;&apos; src=&apos;/static/4e1bdabe36e4e36cb9a18bd340508239/ca1dc/image001.png&apos; srcset=&apos;/static/4e1bdabe36e4e36cb9a18bd340508239/e7570/image001.png 170w,
+/static/4e1bdabe36e4e36cb9a18bd340508239/f46e7/image001.png 340w,
+/static/4e1bdabe36e4e36cb9a18bd340508239/ca1dc/image001.png 680w,
+/static/4e1bdabe36e4e36cb9a18bd340508239/02d09/image001.png 1020w,
+/static/4e1bdabe36e4e36cb9a18bd340508239/9d567/image001.png 1360w,
+/static/4e1bdabe36e4e36cb9a18bd340508239/843ab/image001.png 2131w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;image001.png&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;위의 이미지 좌측은 SentryClientService라는 저수준 모듈의 구현을 추상화하여 SentryService 인터페이스를 생성했고, 우측은 고수준 모듈의 정책의 입장에서 추상화하여 ExceptionCollector 인터페이스를 생성했다.&lt;/p&gt;
+&lt;p&gt;좌측과 같이 저수준 모듈의 구현을 추상화하는 식으로 진행하게 되면 Sentry가 아니라 ElasticSearch와 같은 다른 서비스로 교체하고 싶은 경우 문제가 발생할 수 있다.&lt;/p&gt;
+&lt;p&gt;하지만 우측과 같이 고수준 모듈 정책 입장에서 추상화한 ExceptionCollector 인터페이스를 생성한 상황이라면 SentryCollector 대신 언제든지 ElasticSearchCollector와 같은 또 다른 저수준 모듈의 구현체를 갈아끼움으로써 유연하게 대처가 가능해진다.&lt;/p&gt;
+&lt;h3&gt;추상화에 부단한 노력이 필요하다.&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;처음부터 바로 좋은 설계가 나오긴 힘들다.&lt;/li&gt;
+&lt;li&gt;요구사항/업무 이해도가 높아지면서 저수준 모듈을 인지하고 상위 관점에서 저수준 모듈에 대한 추상화를 시도해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;예를 들어 다음과 같이 우리의 이해도에 따라 추상화를 진행할 수 있다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Exception이 발생 -&gt; Sentry에 Exception 정보 보낸다. (아직 추상화하기 부족)&lt;/li&gt;
+&lt;li&gt;Exception이 발생 -&gt; Sentry에 Exception 정보 모은다. (모은다는 하위 기능 도출)&lt;/li&gt;
+&lt;li&gt;Exception이 발생 -&gt; Collector에 Exception을 모은다. (ExceptionCollector라는 상위 모듈 정책 입장에서의 추상화)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;참고&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.inflearn.com/course/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%9E%85%EB%AC%B8/dashboard&quot;&gt;인프런 객체 지향 프로그래밍 입문&lt;/a&gt; - 최범균&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[MySQL의 격리 수준]]></title><description><![CDATA[1. 격리 수준에 따라 발생하는 현상들  DIRTY READ NON-REPEATABLE READ PHANTOM READ READ UNCOMMITTED O O O READ COMMITTED X O O REPEATABLE READ X X O (InnoDB…]]></description><link>https://github.com/bigfanoftim/bigfanoftim.github.io/transaction-isolation-level/</link><guid isPermaLink="false">https://github.com/bigfanoftim/bigfanoftim.github.io/transaction-isolation-level/</guid><pubDate>Tue, 22 Aug 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;1. 격리 수준에 따라 발생하는 현상들&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -235,82 +313,4 @@ A 트랜잭션에서 같은 행을 반복해서 조회하는데 그 조회 내�
 &lt;h2&gt;참고&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.yes24.com/Product/Goods/103415627&quot;&gt;Real MySQL 8.0&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[의존 역전 원칙 - DIP (Dependency Inversion Principle)]]></title><description><![CDATA[의존 역전 원칙 고수준 모듈이 저수준 모듈의 구현에 의존하면 안된다. 저수준 모듈이 고수준 모듈에서 정의한 추상타입에 의존해야 한다. 풀어 설명하면 고수준 모듈이 저수준 모듈의 구현에 의존하는 상황에서 발생하는 문제를 해결하기 위해 등장한 것이 DIP…]]></description><link>https://github.com/bigfanoftim/bigfanoftim.github.io/dependency-inversion-principal-inflearn/</link><guid isPermaLink="false">https://github.com/bigfanoftim/bigfanoftim.github.io/dependency-inversion-principal-inflearn/</guid><pubDate>Tue, 22 Aug 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;의존 역전 원칙&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;고수준 모듈이 저수준 모듈의 구현에 의존하면 안된다.&lt;/li&gt;
-&lt;li&gt;저수준 모듈이 고수준 모듈에서 정의한 추상타입에 의존해야 한다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;풀어 설명하면 고수준 모듈이 저수준 모듈의 구현에 의존하는 상황에서 발생하는 문제를 해결하기 위해 등장한 것이 DIP이다.&lt;/p&gt;
-&lt;p&gt;예를 한번 살펴보자.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/**
- * 고수준 모듈에서 사용중인 저수준 모듈 변경 전
- */&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MeasureService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;measure&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MeasureReq&lt;/span&gt; req&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token class-name&quot;&gt;File&lt;/span&gt; file &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getFile&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        nasStorage&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;file&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-        jdbcTemplate&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;insert into MEAS_INFO ...&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        
-        jdbcTemplate&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;insert into BP_MOD_REQ ...&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;token comment&quot;&gt;/** 
- * 고수준 모듈에서 사용중인 저수준 모듈 변경 후
- */&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MeasureService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;measure&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MeasureReq&lt;/span&gt; req&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token class-name&quot;&gt;File&lt;/span&gt; file &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getFile&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        s3Storage&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;file&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-        jdbcTemplate&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;insert into MEAS_INFO ...&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-        rabitmq&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;convertAndSend&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;고수준 모듈(MeasureService)의 정책은 변경된게 없으나 저수준 모듈 구현의 변경으로 고수준 모듈의 코드까지 변경되어야 하는 상황이다. &lt;/p&gt;
-&lt;p&gt;다른 예시를 하나 더 살펴보자.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MyService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ConcreteDependency&lt;/span&gt; dependency &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ConcreteDependency&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;doSomething&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    dependency&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;someMethod&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;MyService 클래스도 저수준 모듈인 ConcreteDependency의 구현을 그대로 의존하고 있다. 이런식으로 컴파일 시점에서 의존을 해버리면 유연하게 의존을 변경할 수 없게 된다.&lt;/p&gt;
-&lt;h2&gt;저수준 모듈이 고수준 모듈의 추상화에 의존해야 한다.&lt;/h2&gt;
-&lt;p&gt;이런 문제를 해결하기 위해 저수준 모듈이 고수준 모듈의 추상화에 의존할 수 있도록 구현하는 것이 &lt;code class=&quot;language-text&quot;&gt;의존 역전 원칙&lt;/code&gt;이다.&lt;/p&gt;
-&lt;p&gt;이때 명심해야 할 것은 &lt;code class=&quot;language-text&quot;&gt;저수준 모듈 구현 입장에서 추상화&lt;/code&gt;하는 것이 아니라 &lt;code class=&quot;language-text&quot;&gt;고수준 모듈의 정책 입장에서 추상화&lt;/code&gt;하는 것이다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/4e1bdabe36e4e36cb9a18bd340508239/843ab/image001.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 26.47058823529412%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA10lEQVR42m1Q7YqDMBD0/d/Id7heD6H9ZatB/IBaFY3my2SaXegV2g4Mye4OM5skSikMw4BxHLGuK7z32DaFZZFcW+tAsNbiHnV9f8c8z6wzxkbNFrULtDbYYy+ZpgllWUIIEcU9N+umwd/xiDzPoZRGmqb4jXXbtrhcrvHsEGII6bMsw+Hwwx4UmuANZChjYn+78dZSSpxOZ3Rdx/MQAtMTfYA2BkprOLdznTwFRILbd1RVxYnEum7+Z++g7xKiRFEUHE742PCZTh6ve/hq6pzjFxDJnAwfWViBGdjjaIMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;image001.png&apos; title=&apos;&apos; src=&apos;/static/4e1bdabe36e4e36cb9a18bd340508239/ca1dc/image001.png&apos; srcset=&apos;/static/4e1bdabe36e4e36cb9a18bd340508239/e7570/image001.png 170w,
-/static/4e1bdabe36e4e36cb9a18bd340508239/f46e7/image001.png 340w,
-/static/4e1bdabe36e4e36cb9a18bd340508239/ca1dc/image001.png 680w,
-/static/4e1bdabe36e4e36cb9a18bd340508239/02d09/image001.png 1020w,
-/static/4e1bdabe36e4e36cb9a18bd340508239/9d567/image001.png 1360w,
-/static/4e1bdabe36e4e36cb9a18bd340508239/843ab/image001.png 2131w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;image001.png&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;위의 이미지 좌측은 SentryClientService라는 저수준 모듈의 구현을 추상화하여 SentryService 인터페이스를 생성했고, 우측은 고수준 모듈의 정책의 입장에서 추상화하여 ExceptionCollector 인터페이스를 생성했다.&lt;/p&gt;
-&lt;p&gt;좌측과 같이 저수준 모듈의 구현을 추상화하는 식으로 진행하게 되면 Sentry가 아니라 ElasticSearch와 같은 다른 서비스로 교체하고 싶은 경우 문제가 발생할 수 있다.&lt;/p&gt;
-&lt;p&gt;하지만 우측과 같이 고수준 모듈 정책 입장에서 추상화한 ExceptionCollector 인터페이스를 생성한 상황이라면 SentryCollector 대신 언제든지 ElasticSearchCollector와 같은 또 다른 저수준 모듈의 구현체를 갈아끼움으로써 유연하게 대처가 가능해진다.&lt;/p&gt;
-&lt;h2&gt;추상화에 부단한 노력이 필요하다.&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;처음부터 바로 좋은 설계가 나오긴 힘들다.&lt;/li&gt;
-&lt;li&gt;요구사항/업무 이해도가 높아지면서 저수준 모듈을 인지하고 상위 관점에서 저수준 모듈에 대한 추상화를 시도해야 한다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;예를 들어 다음과 같이 우리의 이해도에 따라 추상화를 진행할 수 있다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Exception이 발생 -&gt; Sentry에 Exception 정보 보낸다. (아직 추상화하기 부족)&lt;/li&gt;
-&lt;li&gt;Exception이 발생 -&gt; Sentry에 Exception 정보 모은다. (모은다는 하위 기능 도출)&lt;/li&gt;
-&lt;li&gt;Exception이 발생 -&gt; Collector에 Exception을 모은다. (ExceptionCollector라는 상위 모듈 정책 입장에서의 추상화)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;참고&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.inflearn.com/course/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%9E%85%EB%AC%B8/dashboard&quot;&gt;인프런 객체 지향 프로그래밍 입문&lt;/a&gt; - 최범균&lt;/p&gt;
-&lt;/blockquote&gt;</content:encoded></item></channel></rss>
+&lt;/ul&gt;</content:encoded></item></channel></rss>
