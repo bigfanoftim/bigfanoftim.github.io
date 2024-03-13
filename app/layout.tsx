@@ -2,7 +2,6 @@ import Link from "next/link"
 import "./globals.css"
 import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Analytics } from "@/components/analytics"
 import { ModeToggle } from "@/components/mode-toggle"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -35,7 +34,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </header>
             <main>{children}</main>
           </div>
-          <Analytics />
         </ThemeProvider>
       </body>
     </html>
