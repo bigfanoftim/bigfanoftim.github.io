@@ -66,6 +66,7 @@ module.exports = () => {
       dirs: ['app', 'components', 'layouts', 'scripts'],
     },
     output: 'export',
+    basePath: '',
     images: {
       unoptimized: true,
       remotePatterns: [
