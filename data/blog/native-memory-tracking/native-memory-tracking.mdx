@@ -6,6 +6,23 @@ draft: false
 summary: JVM의 메모리 사용량을 추적해보자.
 ---
 
+(2024-03-26)
+- 이전에 Native Memory Tracking으로 메모리 사용량을 측정했을 때, Heap에서 committed 상태가 대부분의 메모리를 차지했다. (아래 출력된 내용 참고)
+- 이 때는 데이터독을 참고했을 때 힙 메모리 사용 패턴이 정상적이라(Xmx보다 한참 아래에서 적당히 조절되고 있었음, 다만 전체 점유(rss) 메모리는 Xmx와 동일) committed된 것들이 Xmx를 높게 잡아서 한번 가지면 다시 OS로 반환을 안하는 줄 알았으나
+  jcmd 명령어로 GC.run을 강제로 실행했더니 점유된 메모리가 줄었다.  여전히 데이터독으로 보이는 힙 메모리 패턴은 정상적으로 보였음
+- 그렇다면 우리 상황에서는 현재 자동으로 동작하는 GC는 힙 메모리 자체를 조절하긴 하나 OS로 반납은 하지 않고 있는 것. 혹은 데이터독에서 보이는 힙 메모리 메트릭이 우리가 이해하는 것과 다른 것일 수도..
+- JVM과 GC에 대한 더 깊은 이해가 필요할 것 같다.
+  NMT 진행 시 볼 수 있는 committed된 Java Heap, 데이터독에서 보이는 RSS Memory, used Heap
+
+
+```shell
+Native Memory Tracking:
+
+Total: reserved=21428856KB, committed=11072724KB
+-                 Java Heap (reserved=18874368KB, committed=10018816KB)
+                            (mmap: reserved=18874368KB, committed=10018816KB)
+```
+
 # 지속적으로 증가하는 RSS Memory
 <Image src="/static/native-memory-tracking/rss_memory.png" alt="rss memory" />
 
@@ -26,4 +43,4 @@ summary: JVM의 메모리 사용량을 추적해보자.
 
 # JVM의 Native Memory를 추적하자
 
-JVM에는 네이티브 메모리 사용량을 추적할 수 있는 기능이 있다. 이 기능을 사용하면 JVM이 사용하는 네이티브 메모리의 사용량을 추적할 수 있다.
+JVM에는 네이티브 메모리 사용량을 추적할 수 있는 기능이 있다.
