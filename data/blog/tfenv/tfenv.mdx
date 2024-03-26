@@ -1,0 +1,41 @@
+---
+title: terraform 버전 관리하기
+date: '2024-03-27'
+tags: ['terraform', 'tfenv']
+draft: true
+summary: tfenv로 terraform 버전 관리하기
+---
+
+# tfenv 설치
+`brew`로 terraform을 설치하고 tfenv까지 설치하려고 시도하면 충돌이 발생할 수 있다.
+따라서 tfenv 설치는 아래와 같이 진행한다.
+
+```sh
+git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
+```
+
+사용하고 있는 shell config 파일에 아래와 같이 추가한다.
+
+```sh
+export PATH="$HOME/.tfenv/bin:$PATH"
+```
+
+`tfenv` 명령어를 실행하여 설치가 잘 되었는지 확인한다.
+
+```shell
+ tfenv
+tfenv 3.0.0
+Usage: tfenv <command> [<options>]
+
+Commands:
+   install       Install a specific version of Terraform
+   use           Switch a version to use
+   uninstall     Uninstall a specific version of Terraform
+   list          List all installed versions
+   list-remote   List all installable versions
+   version-name  Print current version
+   init          Update environment to use tfenv correctly.
+   pin           Write the current active version to ./.terraform-version
+```
+
+
