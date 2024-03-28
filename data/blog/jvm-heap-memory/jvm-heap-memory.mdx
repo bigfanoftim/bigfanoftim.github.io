@@ -1,9 +1,8 @@
 ---
-title: JVM Native Memory Tracking
+title: JVM 힙 메모리 분석
 date: '2024-03-11'
-tags: ['JVM', 'Native Memory Tracking']
+tags: ['JVM', 'Heap Memory', 'Native Memory Tracking']
 draft: true
-summary: JVM의 메모리 사용량을 추적해보자.
 ---
 
 (2024-03-26)
@@ -13,6 +12,15 @@ summary: JVM의 메모리 사용량을 추적해보자.
 - 그렇다면 우리 상황에서는 현재 자동으로 동작하는 GC는 힙 메모리 자체를 조절하긴 하나 OS로 반납은 하지 않고 있는 것. 혹은 데이터독에서 보이는 힙 메모리 메트릭이 우리가 이해하는 것과 다른 것일 수도..
 - JVM과 GC에 대한 더 깊은 이해가 필요할 것 같다.
   NMT 진행 시 볼 수 있는 committed된 Java Heap, 데이터독에서 보이는 RSS Memory, used Heap
+
+(2024-03-28)
+java process의 RSS 메모리는 기본적으로 java heap뿐만 아니라 native도 포함됨.
+또한 RSS 메모리의 경우 heap 사용량에 따라 달라지는 것이 아니라 java heap의 committed를 계산하기 때문에 실제 사용량은 적더라도 RSS 메모리에는 더 크게 집계될 수 있음.
+jcmd를 통해 GC.run을 실행했을 때 상황에 따라 RSS 메모리가 줄어든 케이스가 있고 그렇지 않은 케이스가 있는 것은 실제로 Committed를 줄일 수 있는지 아닌지에 따라 결정된 것.
+
+따라서 Xmx를 11G로 설정했다 하더라도, RSS는 당연히 native를 포함해서 더 높게 잡힐 수 있는 것이고, 데이터독과 같은 모니터링 툴을 이용해서 jvm heap 사용량 메트릭을 확인해봐도
+실제로 heap의 Committed보다는 적을 수 있다.
+
 
 
 ```shell
@@ -24,7 +32,7 @@ Total: reserved=21428856KB, committed=11072724KB
 ```
 
 # 지속적으로 증가하는 RSS Memory
-<Image src="/static/native-memory-tracking/rss_memory.png" alt="rss memory" />
+<Image src="/static/jvm-heap-memory/rss_memory.png" alt="rss memory" />
 
 데이터독으로 리소스 사용량을 모니터링하던 중 특정 EC2 인스턴스의 RSS 메모리가 지속적으로 증가하는 것을 발견하였다. (RSS 메모리는 Resident Set Size의 약자로, 프로세스가 사용하는 물리적 메모리의 양을 의미한다.)
 그런데 여기서 이상하다고 생각한 점은 바로 비교적 트래픽이 낮은 시점에도 유지되거나 증가하는 것이었다.
@@ -32,7 +40,7 @@ Total: reserved=21428856KB, committed=11072724KB
 나는 분명 GC가 사용하지 않는 메모리를 해제하여 총 메모리 사용량이 줄어야 한다고 생각했는데,
 현재 상황에서는 그렇지 않아보였다. 정확히 무엇때문에 이런 현상이 발생하는지 알아보기 전에 혹시 몰라 데이터독의 힙 메모리 메트릭을 확인해보았다.
 
-<Image src="/static/native-memory-tracking/heap_memory.png" alt="heap memory" />
+<Image src="/static/jvm-heap-memory/heap_memory.png" alt="heap memory" />
 
 꾸준하게 증가하는 RSS 메모리와는 다르게 힙 메모리는 정상적인 패턴을 갖고 있었다. 따라서 GC는 내 예상대로 잘 동작을 하고 있으니, RSS 메모리의 지속적인 증가는 GC의 문제가 아닌 다른 문제가 있을 것이라고 생각했다.
 
