@@ -2,40 +2,82 @@
 title: terraform 버전 관리하기
 date: '2024-03-27'
 tags: ['terraform', 'tfenv']
-draft: true
-summary: tfenv로 terraform 버전 관리하기
+draft: false
 ---
 
-# tfenv 설치
-`brew`로 terraform을 설치하고 tfenv까지 설치하려고 시도하면 충돌이 발생할 수 있다.
-따라서 tfenv 설치는 아래와 같이 진행한다.
-
-```sh
-git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
-```
-
-사용하고 있는 shell config 파일에 아래와 같이 추가한다.
-
-```sh
-export PATH="$HOME/.tfenv/bin:$PATH"
-```
-
-`tfenv` 명령어를 실행하여 설치가 잘 되었는지 확인한다.
-
-```shell
- tfenv
-tfenv 3.0.0
-Usage: tfenv <command> [<options>]
-
-Commands:
-   install       Install a specific version of Terraform
-   use           Switch a version to use
-   uninstall     Uninstall a specific version of Terraform
-   list          List all installed versions
-   list-remote   List all installable versions
-   version-name  Print current version
-   init          Update environment to use tfenv correctly.
-   pin           Write the current active version to ./.terraform-version
-```
+- `brew`로 terraform을 설치하고 tfenv까지 설치하려고 시도하면 충돌이 발생할 수 있다. 따라서 tfenv 설치는 아래와 같이 진행한다.
+    ```sh
+    $ git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
+    ```
 
 
+- 사용하고 있는 shell config 파일에 아래와 같이 추가한다.
+    ```sh
+    export PATH="$HOME/.tfenv/bin:$PATH"
+    ```
+
+
+- `tfenv` 명령어를 실행하여 설치가 잘 되었는지 확인한다.
+    ```shell
+    $ tfenv
+    tfenv 3.0.0
+    Usage: tfenv <command> [<options>]
+
+    Commands:
+       install       Install a specific version of Terraform
+       use           Switch a version to use
+       uninstall     Uninstall a specific version of Terraform
+       list          List all installed versions
+       list-remote   List all installable versions
+       version-name  Print current version
+       init          Update environment to use tfenv correctly.
+       pin           Write the current active version to ./.terraform-version
+    ```
+
+
+- `tfenv list-remote` 명령어로 설치할 수 있는 terraform 버전을 확인한다.
+    ```shell
+    $ tfenv list-remote
+    1.8.0-rc1
+    1.8.0-beta1
+    1.8.0-alpha20240228
+    1.8.0-alpha20240216
+    1.8.0-alpha20240214
+    1.8.0-alpha20240131
+    1.7.5
+    1.7.4
+    1.7.3
+    1.7.2
+    1.7.1
+    1.7.0
+    ```
+
+
+- 원하는 버전을 설치한다.
+    ```shell
+    $ tfenv install 1.7.5
+    Installing Terraform v1.7.5
+    Downloading release tarball from https://releases.hashicorp.com/terraform/1.7.5/terraform_1.7.5_darwin_arm64.zip
+    ######################################################################################################################################################################################################################################################### 100.0%
+    Downloading SHA hash file from https://releases.hashicorp.com/terraform/1.7.5/terraform_1.7.5_SHA256SUMS
+    Not instructed to use Local PGP (/Users/bigfanoftim/.tfenv/use-{gpgv,gnupg}) & No keybase install found, skipping OpenPGP signature verification
+    Archive:  /var/folders/hp/ygr88pvj5hv8kbfhfy707vnc0000gn/T/tfenv_download.XXXXXX.hIxoh1hO/terraform_1.7.5_darwin_arm64.zip
+      inflating: /Users/bigfanoftim/.tfenv/versions/1.7.5/terraform
+    Installation of terraform v1.7.5 successful. To make this your default version, run 'tfenv use 1.7.5'
+    ```
+
+
+- `tfenv list` 명령어로 설치된 terraform 버전을 확인한다.
+    ```shell
+    $ tfenv list
+      1.7.5
+    No default set. Set with 'tfenv use <version>'
+    ```
+
+
+- `tfenv use` 명령어로 사용할 terraform 버전을 설정한다.
+    ```shell
+    $ tfenv use 1.7.5
+    Switching default version to v1.7.5
+    Default version (when not overridden by .terraform-version or TFENV_TERRAFORM_VERSION) is now: 1.7.5
+    ```
