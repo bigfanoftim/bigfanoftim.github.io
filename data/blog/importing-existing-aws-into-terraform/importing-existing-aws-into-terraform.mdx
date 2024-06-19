@@ -5,7 +5,7 @@ tags: ['aws', 'terraform']
 draft: true
 ---
 
-- [ ] directory structure 파악
+- [x] directory structure 파악
   - 기존에 사용했던 directory structure가 맘에 들지 않음, module을 고려한 directory를 설계해야 함.
   - 하나의 aws 계정이 아닌 것도 고려해야 함
 
@@ -13,3 +13,13 @@ draft: true
 - terraforming 시작
 - ruby로 작성된 terraforming 도구가 deprecated되어 다른 도구 서치중.. 간단하게 써봐도 나쁘지 않을듯.
 
+(2024-06-19)
+- import를 위한 도구는 gcp의 terraformer 사용
+  - alb resource를 제외하고는 거의 대부분의 resource import 시 정상적으로 사용할 수 있었음
+  - 몇몇 리소스는 포함되어있지 않으나, aws terraform registry 참고하여 충분히 import 하기 쉬웠음
+- 정신없는 와중에 terraform의 한계를 느끼고 terragrunt 도입
+- 새로운 프로젝트는 처음부터 모든 리소스를 terragrunt로 관리
+  - 기존 서비스를 그대로 fork해서 새로운 서비스를 만드는 외주 프로젝트를 진행하는데, 필요한 리소스를 전부 모듈화하여 생성하니 굉장히 빠르고 효율적으로 작업할 수 있었음
+  - 무엇보다 terraform에서 다른 리소스 혹은 모듈의 output을 처리하려면 굉장히 많은 variable, output 코드를 작성해야 했는데, terragrunt 사용 시 그렇게 하지 않아도 되니 훨씬 편했음
+- 하지만 어느 순간 의존성이 복잡해지니 간단한 명령(plan, apply)에도 시간이 오래 걸리는 문제가 발생.
+  - 의존성이 복잡하다고 해서 기존 리소스를 전부 다 새로운 모듈로 import 하는 것도 너무 번거로운 일이라... 이런 경우엔 어떻게 해야하나.
