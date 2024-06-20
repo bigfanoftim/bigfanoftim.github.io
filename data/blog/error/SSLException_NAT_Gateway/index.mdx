@@ -1,0 +1,25 @@
+---
+title: javax.net.ssl.SSLException: Connection reset 에러 - NAT Gateway
+date: '2024-06-19'
+tags: ['aws', 'java', 'nat-gateway']
+draft: false
+---
+
+<Image src="/static/error/SSLException_NAT_Gateway/1.png" alt="SSLException 발생" />
+
+## 상황
+
+- private subnet에 위치한 ec2 instance 내에 여러 스프링 애플리케이션 동작 중
+- 같은 인스턴스 내 다른 애플리케이션을 호출하기 위해 rest template 사용
+- private dns가 준비되지 않아 클라이언트에서 사용하는 public dns로 호출
+- SSLException 에러 발생
+
+`new RestTemplate()`을 사용하던 admin -> partner 에서는 발생하지 않았음 (둘다 동일한 프라이빗 인스턴스 내 위치, public dns 사용)
+RestTemplateConfig에서 pool 생성 후 커넥션 주입받아 사용하던 곳(api -> gateway)에서 발생
+
+## 해결
+
+- private dns
+
+- [ ] 위에 상황이 맞는지 한번 더 확인
+- [ ] 왜 풀에서 가져온 커넥션에서만 발생하는지 원인 분석
