@@ -1,24 +1,65 @@
 ---
-title: AWS 비용 추적
+title: AWS 비용 추적기
 date: '2024-06-26'
-tags: ['aws']
+tags: ['aws', 'cost', 'data-transfer']
 draft: true
 ---
 
+이번 포스팅에서는 최근에 업무 중 진행했던 AWS 비용 추적 경험을 공유하고자 합니다.
+
+# Data Transfer 비용 급증
+
+<Image src="/static/aws/data_transfer_비용_추적/images/1.png" alt="AWS Data Transfer 비용" />
+
+지난 달 AWS 비용을 확인하던 중, 급증한 Data Transfer 비용을 발견했습니다.
+
+올해 초부터 Data Transfer 비용이 $1,000을 넘은 적이 없었고, 일 단위로 보았을 때 5월 중순부터 Data Transfer 비용이 늘기 시작했기 때문에
+가장 먼저 5월 인프라 작업을 확인했습니다.
+
+`Terragrunt` 기반 IaC를 적극적으로 사용하고 있어 5월 인프라 작업 내역을 쉽게 파악할 수 있었으나 특이사항은 없었습니다.
+
+특별히 추가되거나 변경된 인프라 리소스가 없으니, 실제로 AWS에서 발생하는 네트워크 지표(EC2, ELB, Cloudfront 등)들을 확인해보기로 했습니다.
+여러 지표들을 확인했으나 이 또한 올해 초와 비교하니 여기서도 문제가 보이지 않았습니다.
+(트래픽은 이전에 비해 소폭 증가했으나, 5배가 넘게 오른 Data Transfer 비용을 설명할 수는 없는 수준이었습니다.)
+
+# 비용 분석
+
+## Cost and Usage Reports
+
+결국 보다 더 정확한 원인 분석을 위해 실제로 AWS에서 발생하는 비용을 리소스 별로 확인할 수 있는 Report 기능을 활용하기로 했습니다.
+
+사내 인프라는 메가존 클라우드를 통해 결제를 진행하고 있어 AWS 콘솔에서 직접 Billing을 컨트롤 할 수 없기 때문에,
+메가존 클라우드 HyperBilling `상세 이용 내역` 기능을 활용하여 리소스별 사용량 CSV 파일을 다운로드 받았습니다.
+
+<Image src="/static/aws/data_transfer_비용_추적/images/2.png" alt="AWS Cost and Usage Reports" />
+
+> 만약 AWS의 결제를 전부 root 계정을 통해 직접 관리하는 경우 AWS 콘솔에서 `Cost and Usage Reports`를 활용할 수 있습니다.
+
+## Python 스크립트를 활용하여 레포트를 데이터베이스에 저장
+
+다운받은 데이터를 더 쉽게 분석하기 위해 데이터베이스에 넣는 작업을 진행하기로 했습니다.
+79개의 컬럼에 맞춰 스키마를 수동으로 생성할 수는 없으니 Python 스크립트를 작성합니다.
+
 ### Python 가상환경 구성
+
+> 저는 루트 환경에 여러 의존성을 설치하는 것을 좋아하지 않기 때문에 가상환경을 구성했습니다.
+> 각자 본인이 편한 방식으로 진행하면 됩니다.
+> 저는 다른 툴을 사용하지 않고, 맥북에 설치된 기본 Python과 shell에 보이는 가이드를 따라 빠르게 진행했습니다.
 
 ```shell
 $ python3 -m venv ~/dev/python-venv
-$ source ~/dev/python-venv/bin/activate.fish
+$ source ~/dev/python-venv/bin/activate.fish # fish shell 사용중이라 .fish 파일로 가상환경 설정
 ```
 
-- fish shell 사용중이라 `activate.fish` 파일로 가상환경 활성화
+가상환경이 활성화 되었다면 필요한 라이브러리를 설치합니다.
 
 ```shell
-$ python -m pip install pandas sqlalchemy pymysql
+$ python -m pip install pandas sqlalchemy pymysql cryptography
 ```
 
-### docker-compose.yml
+### 도커 컴포즈를 활용한 MySQL 구성
+
+데이터를 저장할 MySQL을 도커 컴포즈로 구성합니다.
 
 ```yml
 version: '3.8'
@@ -41,13 +82,15 @@ volumes:
   my_db_volume:
 ```
 
+각자 편한 방식대로 `docker-compose.yml`을 작성합니다. 그리고 아래 명령어로 MySQL을 실행합니다.
+
 ```shell
 $ docker-compose up
 ```
 
-### Python Script
+### pandas로 데이터베이스에 CSV 데이터 저장
 
-```shell
+```python
 from sqlalchemy import create_engine
 import pandas as pd
 
@@ -68,4 +111,13 @@ engine = create_engine(f"mysql+pymysql://{username}:{password}@{host}/{database}
 combined_df.to_sql("csv_to_sql", con=engine, if_exists="replace", index=False)
 ```
 
-- 복잡한 csv 구조와 동일한 schema를 미리 만들지 않아도, dataframe 구조 그대로 테이블 생성 및 데이터 저장 가능
+위와 같이 간단한 Python 스크립트를 작성합니다.
+- `pandas`로 필요한 CSV 파일을 읽어들인 후, `sqlalchemy` 라이브러리를 활용하여 MySQL에 데이터를 저장합니다.
+- 이때 데이터를 생성할 수 있는 테이블이 없더라도 `.to_sql()` 메소드를 통해 자동으로 테이블을 생성합니다.
+
+<Image src="/static/aws/data_transfer_비용_추적/images/3.png" alt="데이터베이스에 생성된 데이터 확인" />
+
+위에서 작성한 Python 스크립트를 실행하면 데이터베이스에 데이터가 잘 생성되었는지 확인할 수 있습니다.
+컬럼이 매우 많아 스크린샷에 다 담지 못했지만, 비용 추적을 위해 어떤 아이템인지, 비용이 얼마나 발생했는지, 언제 발생했는지 등 다양한 데이터를 확인할 수 있습니다.
+
+
