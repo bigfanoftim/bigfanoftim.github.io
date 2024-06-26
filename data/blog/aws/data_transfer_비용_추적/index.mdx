@@ -1,0 +1,71 @@
+---
+title: AWS 비용 추적
+date: '2024-06-26'
+tags: ['aws']
+draft: true
+---
+
+### Python 가상환경 구성
+
+```shell
+$ python3 -m venv ~/dev/python-venv
+$ source ~/dev/python-venv/bin/activate.fish
+```
+
+- fish shell 사용중이라 `activate.fish` 파일로 가상환경 활성화
+
+```shell
+$ python -m pip install pandas sqlalchemy pymysql
+```
+
+### docker-compose.yml
+
+```yml
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: aws_report
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - my_db_volume:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  my_db_volume:
+```
+
+```shell
+$ docker-compose up
+```
+
+### Python Script
+
+```shell
+from sqlalchemy import create_engine
+import pandas as pd
+
+files = [
+    "./aws-report-April.csv",
+    "./aws-report-May.csv",
+    "./aws-report-June.csv",
+]
+dataframes = [pd.read_csv(file) for file in files]
+combined_df = pd.concat(dataframes, ignore_index=True)
+
+username = "admin"
+password = "password"
+host = "localhost"
+database = "aws_report"
+engine = create_engine(f"mysql+pymysql://{username}:{password}@{host}/{database}")
+
+combined_df.to_sql("csv_to_sql", con=engine, if_exists="replace", index=False)
+```
+
+- 복잡한 csv 구조와 동일한 schema를 미리 만들지 않아도, dataframe 구조 그대로 테이블 생성 및 데이터 저장 가능
